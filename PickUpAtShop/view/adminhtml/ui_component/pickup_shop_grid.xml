@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">pickup_shop_grid.pickup_shop_grid_data_source</item>
+        </item>
+        <item name="spinner" xsi:type="string">pickup_shop_grid_columns</item>
+    </argument>
+    <dataSource name="pickup_shop_grid_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Zhidkovskiy_PickUpAtShop::pickup_shops</aclResource>
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="pickup_shop_grid_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <columns name="pickup_shop_grid_columns">
+        <column name="id" sortOrder="10">
+            <settings>
+                <label translate="true">ID</label>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+        <column name="name" sortOrder="15">
+            <settings>
+                <label translate="true">Name</label>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+    </columns>
+</listing>
